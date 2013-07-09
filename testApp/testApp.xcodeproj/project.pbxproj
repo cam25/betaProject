@@ -24,6 +24,8 @@
 		112ACB9D178C68B500F4793C /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 112ACB9C178C68B500F4793C /* second@2x.png */; };
 		112ACBA0178C68B500F4793C /* FirstViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 112ACB9E178C68B500F4793C /* FirstViewController.xib */; };
 		112ACBA3178C68B500F4793C /* SecondViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 112ACBA1178C68B500F4793C /* SecondViewController.xib */; };
+		112ACBAB178C72EC00F4793C /* CustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 112ACBAA178C72EC00F4793C /* CustomCell.m */; };
+		112ACBAD178C730800F4793C /* CustomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 112ACBAC178C730700F4793C /* CustomView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +52,9 @@
 		112ACB9C178C68B500F4793C /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
 		112ACB9F178C68B500F4793C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/FirstViewController.xib; sourceTree = "<group>"; };
 		112ACBA2178C68B500F4793C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SecondViewController.xib; sourceTree = "<group>"; };
+		112ACBA9178C72EC00F4793C /* CustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCell.h; sourceTree = "<group>"; };
+		112ACBAA178C72EC00F4793C /* CustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCell.m; sourceTree = "<group>"; };
+		112ACBAC178C730700F4793C /* CustomView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +114,9 @@
 				112ACB9E178C68B500F4793C /* FirstViewController.xib */,
 				112ACBA1178C68B500F4793C /* SecondViewController.xib */,
 				112ACB7F178C68B500F4793C /* Supporting Files */,
+				112ACBA9178C72EC00F4793C /* CustomCell.h */,
+				112ACBAA178C72EC00F4793C /* CustomCell.m */,
+				112ACBAC178C730700F4793C /* CustomView.xib */,
 			);
 			path = testApp;
 			sourceTree = "<group>";
@@ -188,6 +196,7 @@
 				112ACB9D178C68B500F4793C /* second@2x.png in Resources */,
 				112ACBA0178C68B500F4793C /* FirstViewController.xib in Resources */,
 				112ACBA3178C68B500F4793C /* SecondViewController.xib in Resources */,
+				112ACBAD178C730800F4793C /* CustomView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,6 +211,7 @@
 				112ACB89178C68B500F4793C /* AppDelegate.m in Sources */,
 				112ACB92178C68B500F4793C /* FirstViewController.m in Sources */,
 				112ACB99178C68B500F4793C /* SecondViewController.m in Sources */,
+				112ACBAB178C72EC00F4793C /* CustomCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

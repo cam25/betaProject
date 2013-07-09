@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FirstViewController : UIViewController
+@interface FirstViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+{
+    IBOutlet UITableView *mainTableView;
+    NSMutableArray *verses;
+    NSMutableData *data;
+    
+}
 
 @end
