@@ -11,9 +11,9 @@
 @interface FirstViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 {
     IBOutlet UITableView *mainTableView;
-    NSMutableArray *verses;
+    //NSDictionary *verses;
     NSMutableData *data;
-    
+    NSArray *verses;
 }
-
+@property (nonatomic,strong) NSArray *verses;
 @end

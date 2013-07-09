@@ -13,7 +13,7 @@
 @end
 
 @implementation FirstViewController
-
+@synthesize verses;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -28,9 +28,12 @@
 
 {
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-    NSURL *url = [NSURL URLWithString:@"http://www.ourmanna.com/verses/api/get?format=text&order=random"];
+    NSURL *url = [NSURL URLWithString:@"http://www.ourmanna.com/verses/api/get/?format=json"];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
-   NSURLConnection *connection = [[NSURLConnection alloc]initWithRequest:request delegate:self];
+   [[NSURLConnection alloc]initWithRequest:request delegate:self];
+    
+    //verses = [[NSMutableArray alloc]init];
+    // NSString *imageUrl = [[verses objectForKey:@"verses"]objectForKey:@"verseurl"];
     
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
@@ -62,7 +65,8 @@
         NSLog(@"Error parsing JSON: %@", jsonError);
     } else {
         for(NSDictionary *item in verses) {
-            NSLog(@"Item: %@", item);
+           // NSLog(@"Item: %@", verses);
+          
         }
     }
         [mainTableView reloadData];
@@ -81,8 +85,9 @@
     UITableViewCell * cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
     if (cell != nil) {
         
-        cell.textLabel.text = [[verses objectAtIndex:indexPath.row]objectForKey:@"verseurl:"];
-        
+        NSLog(@"%@", verses);
+      
+        cell.textLabel.text = [[verses objectAtIndex:indexPath.row]objectForKey:@"verse"];
         return cell;
     }
     return nil;
