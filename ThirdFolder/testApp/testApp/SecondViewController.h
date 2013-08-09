@@ -8,6 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SecondViewController : UIViewController
+@interface SecondViewController : UIViewController <UISearchBarDelegate, UITextViewDelegate>
+
+{
+    NSMutableArray *totalStrings;
+    NSMutableArray *filteredStrings;
+   // UITextView *searchTextView;
+    BOOL isFiltered;
+}
+
+
+@property (weak, nonatomic) IBOutlet UISearchBar *mySearchBar;
+@property (weak, nonatomic) IBOutlet UITextView *searchTextView;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *clearButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *infoButton;
 
 @end

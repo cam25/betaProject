@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ThirdTabViewController : UIViewController
+@interface ThirdTabViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
+{
+    IBOutlet UITableView *videoTableView;
+    
+}
 
 @end

@@ -30,6 +30,8 @@
 		1172AE9117B4A56D00E0DC06 /* SplashScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1172AE8F17B4A56D00E0DC06 /* SplashScreenViewController.xib */; };
 		1172AE9317B4A6C800E0DC06 /* bibleMainScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 1172AE9217B4A6C700E0DC06 /* bibleMainScreen.png */; };
 		1172AE9517B4B40D00E0DC06 /* VerseOfDayImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 1172AE9417B4B40D00E0DC06 /* VerseOfDayImage.png */; };
+		1172AE9917B5A18900E0DC06 /* VideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1172AE9717B5A18800E0DC06 /* VideoViewController.m */; };
+		1172AE9A17B5A18900E0DC06 /* VideoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1172AE9817B5A18900E0DC06 /* VideoViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +66,9 @@
 		1172AE8F17B4A56D00E0DC06 /* SplashScreenViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SplashScreenViewController.xib; sourceTree = "<group>"; };
 		1172AE9217B4A6C700E0DC06 /* bibleMainScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bibleMainScreen.png; sourceTree = "<group>"; };
 		1172AE9417B4B40D00E0DC06 /* VerseOfDayImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = VerseOfDayImage.png; sourceTree = "<group>"; };
+		1172AE9617B5A18700E0DC06 /* VideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoViewController.h; sourceTree = "<group>"; };
+		1172AE9717B5A18800E0DC06 /* VideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoViewController.m; sourceTree = "<group>"; };
+		1172AE9817B5A18900E0DC06 /* VideoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +136,9 @@
 				1172AE8D17B4A56D00E0DC06 /* SplashScreenViewController.h */,
 				1172AE8E17B4A56D00E0DC06 /* SplashScreenViewController.m */,
 				1172AE8F17B4A56D00E0DC06 /* SplashScreenViewController.xib */,
+				1172AE9617B5A18700E0DC06 /* VideoViewController.h */,
+				1172AE9717B5A18800E0DC06 /* VideoViewController.m */,
+				1172AE9817B5A18900E0DC06 /* VideoViewController.xib */,
 			);
 			path = testApp;
 			sourceTree = "<group>";
@@ -214,6 +222,7 @@
 				1172AE9117B4A56D00E0DC06 /* SplashScreenViewController.xib in Resources */,
 				1172AE9317B4A6C800E0DC06 /* bibleMainScreen.png in Resources */,
 				1172AE9517B4B40D00E0DC06 /* VerseOfDayImage.png in Resources */,
+				1172AE9A17B5A18900E0DC06 /* VideoViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -230,6 +239,7 @@
 				1172AE7817B4A48500E0DC06 /* SecondViewController.m in Sources */,
 				1172AE8B17B4A4E200E0DC06 /* ThirdTabViewController.m in Sources */,
 				1172AE9017B4A56D00E0DC06 /* SplashScreenViewController.m in Sources */,
+				1172AE9917B5A18900E0DC06 /* VideoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
