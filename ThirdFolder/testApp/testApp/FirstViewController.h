@@ -10,7 +10,9 @@
 
 @interface FirstViewController : UIViewController
 {
-    
+    IBOutlet UIButton *shareButton;
 }
+
+-(IBAction)onClick:(id)sender;
 
 @end

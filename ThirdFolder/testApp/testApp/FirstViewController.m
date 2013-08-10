@@ -68,4 +68,19 @@
     }
 }
 
+-(IBAction)onClick:(id)sender
+{
+    UIButton *button = (UIButton*)sender;
+    
+    if (button.tag == 0) {//if edit button is clicked unhide done button
+        
+        UIAlertView *alertView = [[UIAlertView alloc] init];
+        alertView.title = @"Share ";
+        alertView.message = @" This will allow for sharing to twitter.";
+        [alertView addButtonWithTitle:@"OK"];
+        [alertView show];
+    }
+}
+
+
 @end

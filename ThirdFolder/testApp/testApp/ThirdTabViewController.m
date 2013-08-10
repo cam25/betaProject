@@ -28,7 +28,7 @@
 - (void)viewDidLoad
 {
     self.title = @"Videos";
-    
+    self.navigationController.navigationBar.tintColor = [UIColor orangeColor];
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 }
@@ -69,8 +69,12 @@
  static NSString *cellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
+    
+    
     if (!cell) {
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+        cell.textLabel.text= @"Video Names Go here";
+    
     }
     return cell;
     

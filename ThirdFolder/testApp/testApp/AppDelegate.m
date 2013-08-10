@@ -26,7 +26,7 @@
     UIViewController *viewController1 = [[FirstViewController alloc] initWithNibName:@"FirstViewController" bundle:nil];
     UIViewController *viewController2 = [[SecondViewController alloc] initWithNibName:@"SecondViewController" bundle:nil];
     UIViewController *viewController3 = [[ThirdTabViewController alloc] initWithNibName:@"ThirdTabViewController" bundle:nil];
-    UIViewController *viewController4 = [[ThirdTabViewController alloc] initWithNibName:@"VideoViewController" bundle:nil];
+    //UIViewController *viewController4 = [[ThirdTabViewController alloc] initWithNibName:@"VideoViewController" bundle:nil];
      UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:viewController3];
     
     self.tabBarController = [[UITabBarController alloc] init];

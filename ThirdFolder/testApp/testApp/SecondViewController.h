@@ -8,13 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SecondViewController : UIViewController <UISearchBarDelegate, UITextViewDelegate>
+@interface SecondViewController : UIViewController <UITextFieldDelegate, UITextViewDelegate>
 
 {
-    NSMutableArray *totalStrings;
-    NSMutableArray *filteredStrings;
+    IBOutlet UIButton *searchButn;
    // UITextView *searchTextView;
-    BOOL isFiltered;
+    //BOOL isFiltered;
 }
 
 
