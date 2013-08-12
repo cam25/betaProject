@@ -20,13 +20,18 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         self.title = NSLocalizedString(@"Verse Of Day", @"Verse Of Day");
-        self.tabBarItem.image = [UIImage imageNamed:@"first"];
+        self.tabBarItem.image = [UIImage imageNamed:@"VOTD"];
     }
     return self;
 }
 							
 - (void)viewDidLoad
 {
+    
+   
+
+
+
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 }

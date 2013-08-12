@@ -19,7 +19,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         self.title = NSLocalizedString(@"Find A Verse", @"Find A Verse");
-        self.tabBarItem.image = [UIImage imageNamed:@"second"];
+        self.tabBarItem.image = [UIImage imageNamed:@"Search"];
     }
     return self;
 }
@@ -41,6 +41,35 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(IBAction)onClick:(id)sender
+{
+    UIButton *button = (UIButton*)sender;
+    
+    if (button.tag == 0) {//if edit button is clicked unhide done button
+        
+        UIAlertView *alertView = [[UIAlertView alloc] init];
+        alertView.title = @"Search Example ";
+        alertView.message = @" To conduct a search enter a single verse ex. John 3:16 or ex. John 3:16-17 for a range of verses or ex. John 3:16;John1:1 to search for multiple single verses and or ranges, all seperated by semi-colons";
+        [alertView addButtonWithTitle:@"OK"];
+        [alertView show];
+       
+    }else if (button.tag == 1)
+    {
+        UIAlertView *alertView = [[UIAlertView alloc] init];
+        alertView.title = @"Clear ";
+        alertView.message = @" This will allow for clearing text view.";
+        [alertView addButtonWithTitle:@"OK"];
+        [alertView show];
+    }else if (button.tag == 2)
+    {
+        UIAlertView *alertView = [[UIAlertView alloc] init];
+        alertView.title = @"Search ";
+        alertView.message = @" This will allow for searcing on click.";
+        [alertView addButtonWithTitle:@"OK"];
+        [alertView show];
+    }
 }
 
 //-(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{

@@ -32,6 +32,9 @@
 		1172AE9517B4B40D00E0DC06 /* VerseOfDayImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 1172AE9417B4B40D00E0DC06 /* VerseOfDayImage.png */; };
 		1172AE9917B5A18900E0DC06 /* VideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1172AE9717B5A18800E0DC06 /* VideoViewController.m */; };
 		1172AE9A17B5A18900E0DC06 /* VideoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1172AE9817B5A18900E0DC06 /* VideoViewController.xib */; };
+		1172AE9C17B82F3600E0DC06 /* Search.png in Resources */ = {isa = PBXBuildFile; fileRef = 1172AE9B17B82F3500E0DC06 /* Search.png */; };
+		1172AE9E17B82F4400E0DC06 /* Video.png in Resources */ = {isa = PBXBuildFile; fileRef = 1172AE9D17B82F4300E0DC06 /* Video.png */; };
+		1172AEA017B82F5200E0DC06 /* VOTD.png in Resources */ = {isa = PBXBuildFile; fileRef = 1172AE9F17B82F5200E0DC06 /* VOTD.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +72,9 @@
 		1172AE9617B5A18700E0DC06 /* VideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoViewController.h; sourceTree = "<group>"; };
 		1172AE9717B5A18800E0DC06 /* VideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoViewController.m; sourceTree = "<group>"; };
 		1172AE9817B5A18900E0DC06 /* VideoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoViewController.xib; sourceTree = "<group>"; };
+		1172AE9B17B82F3500E0DC06 /* Search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Search.png; sourceTree = "<group>"; };
+		1172AE9D17B82F4300E0DC06 /* Video.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Video.png; sourceTree = "<group>"; };
+		1172AE9F17B82F5200E0DC06 /* VOTD.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = VOTD.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +121,9 @@
 		1172AE5D17B4A48400E0DC06 /* testApp */ = {
 			isa = PBXGroup;
 			children = (
+				1172AE9F17B82F5200E0DC06 /* VOTD.png */,
+				1172AE9D17B82F4300E0DC06 /* Video.png */,
+				1172AE9B17B82F3500E0DC06 /* Search.png */,
 				1172AE9417B4B40D00E0DC06 /* VerseOfDayImage.png */,
 				1172AE9217B4A6C700E0DC06 /* bibleMainScreen.png */,
 				1172AE6617B4A48500E0DC06 /* AppDelegate.h */,
@@ -223,6 +232,9 @@
 				1172AE9317B4A6C800E0DC06 /* bibleMainScreen.png in Resources */,
 				1172AE9517B4B40D00E0DC06 /* VerseOfDayImage.png in Resources */,
 				1172AE9A17B5A18900E0DC06 /* VideoViewController.xib in Resources */,
+				1172AE9C17B82F3600E0DC06 /* Search.png in Resources */,
+				1172AE9E17B82F4400E0DC06 /* Video.png in Resources */,
+				1172AEA017B82F5200E0DC06 /* VOTD.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
