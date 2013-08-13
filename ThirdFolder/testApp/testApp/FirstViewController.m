@@ -5,7 +5,7 @@
 //  Created by Cameron Mozie on 8/9/13.
 //  Copyright (c) 2013 Cameron Mozie. All rights reserved.
 //
-
+#import <QuartzCore/QuartzCore.h>
 #import "FirstViewController.h"
 #import "SplashScreenViewController.h"
 #import "AppDelegate.h"
@@ -51,10 +51,12 @@
     NSString *bookName = [[parser objectAtIndex:0]objectForKey:@"bookname"];
     NSString *text = [[parser objectAtIndex:0]objectForKey:@"text"];
     
-  // VOTDtext.text = [[[[parser objectForKey:@"text"] [objectForKey:@"chapter"] objectForKey:@"bookname"];
-  
-   
-    //NSArray * jsonArray = [[[[[[parser objectForKey:@"bookname"] objectForKey:@"chapter"] objectAtIndex:0] objectForKey:@"verse"] objectForKey:@"text"] objectAtIndex:0];
+    
+    
+    CALayer *imageLayer = VOTDtext.layer;
+    [imageLayer setCornerRadius:10];
+    [imageLayer setBorderWidth:1];
+    imageLayer.borderColor=[[UIColor blackColor] CGColor];
 
     VOTDtext.text = [NSString stringWithFormat:@"Book Name: %@\n" @"Chapter: %@ \n" @"Verse: %@\n" @"%@",bookName,handle,verse,text];
     [super viewDidLoad];
