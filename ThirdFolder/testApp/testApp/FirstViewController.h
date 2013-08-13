@@ -11,6 +11,12 @@
 @interface FirstViewController : UIViewController <UITextViewDelegate>
 {
     IBOutlet UIButton *shareButton;
+    NSArray *jsonArray;
+    NSDictionary *userDictionary;
+    NSMutableData *data;
+    IBOutlet UITextView *VOTDtext;
+    NSArray *usersArray;
+    NSMutableArray *bibleVerses;
 }
 
 -(IBAction)onClick:(id)sender;

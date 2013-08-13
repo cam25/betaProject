@@ -28,12 +28,47 @@
 - (void)viewDidLoad
 {
     
+    
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL
+                                                          URLWithString:@"http://labs.bible.org/api/?passage=votd&type=json"]];
+    
+   // NSURL *url = [NSURL URLWithString:@"http://labs.bible.org/api/?passage=votd"];
+    
+    NSData *response = [NSURLConnection sendSynchronousRequest:request
+                                             returningResponse:nil error:nil];
+    NSError *error = nil;
+    NSArray *parser = [NSJSONSerialization JSONObjectWithData:response
+                                                      options:0 error:&error];
+    NSLog(@"Response:::%@",parser);
+    
+    
+   //NSArray *arr = [[[[parser objectForKey:@"chapter"] objectForKey:@"text"] objectForKey:@"verse"] objectForKey:@"bookname"];
+        
+       
+    
+    NSString *handle = [[parser objectAtIndex:0] objectForKey:@"chapter"];
+    NSString *verse = [[parser objectAtIndex:0]objectForKey:@"verse"];
+    NSString *bookName = [[parser objectAtIndex:0]objectForKey:@"bookname"];
+    NSString *text = [[parser objectAtIndex:0]objectForKey:@"text"];
+    
+  // VOTDtext.text = [[[[parser objectForKey:@"text"] [objectForKey:@"chapter"] objectForKey:@"bookname"];
+  
    
+    //NSArray * jsonArray = [[[[[[parser objectForKey:@"bookname"] objectForKey:@"chapter"] objectAtIndex:0] objectForKey:@"verse"] objectForKey:@"text"] objectAtIndex:0];
 
-
-
+    VOTDtext.text = [NSString stringWithFormat:@"Book Name: %@\n" @"Chapter: %@ \n" @"Verse: %@\n" @"%@",bookName,handle,verse,text];
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+}
+
+
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
+{
+    UIAlertView *alertView = [[UIAlertView alloc] init];
+    alertView.title = @"Error ";
+    alertView.message = @" Please make sure you have some type of internet connection.";
+    [alertView addButtonWithTitle:@"OK"];
+    [alertView show];
 }
 
 - (void)didReceiveMemoryWarning
@@ -44,6 +79,9 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+     //jsonArray = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+    
+    //VOTDtext.text = [jsonArray objectAtIndex:0];
     AppDelegate *app = (AppDelegate*)[UIApplication sharedApplication].delegate;
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     if ([app.showedSplash isEqualToString:@"yes"])
