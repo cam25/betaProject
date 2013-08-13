@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		111FE91517B9E27600A43CBF /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 111FE91417B9E27600A43CBF /* CoreImage.framework */; };
+		1149D4D817B9E956001BFAFB /* shareButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 1149D4D717B9E956001BFAFB /* shareButton.png */; };
+		1149D4DA17BABC53001BFAFB /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1149D4D917BABC53001BFAFB /* Accounts.framework */; };
+		1149D4DC17BABC5C001BFAFB /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1149D4DB17BABC5C001BFAFB /* Social.framework */; };
 		1172AE5817B4A48400E0DC06 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1172AE5717B4A48400E0DC06 /* UIKit.framework */; };
 		1172AE5A17B4A48400E0DC06 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1172AE5917B4A48400E0DC06 /* Foundation.framework */; };
 		1172AE5C17B4A48400E0DC06 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1172AE5B17B4A48400E0DC06 /* CoreGraphics.framework */; };
@@ -38,6 +42,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		111FE91417B9E27600A43CBF /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		1149D4D717B9E956001BFAFB /* shareButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shareButton.png; sourceTree = "<group>"; };
+		1149D4D917BABC53001BFAFB /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		1149D4DB17BABC5C001BFAFB /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		1172AE5417B4A48400E0DC06 /* testApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = testApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1172AE5717B4A48400E0DC06 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		1172AE5917B4A48400E0DC06 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -82,6 +90,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1149D4DC17BABC5C001BFAFB /* Social.framework in Frameworks */,
+				1149D4DA17BABC53001BFAFB /* Accounts.framework in Frameworks */,
+				111FE91517B9E27600A43CBF /* CoreImage.framework in Frameworks */,
 				1172AE5817B4A48400E0DC06 /* UIKit.framework in Frameworks */,
 				1172AE5A17B4A48400E0DC06 /* Foundation.framework in Frameworks */,
 				1172AE5C17B4A48400E0DC06 /* CoreGraphics.framework in Frameworks */,
@@ -111,6 +122,9 @@
 		1172AE5617B4A48400E0DC06 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1149D4DB17BABC5C001BFAFB /* Social.framework */,
+				1149D4D917BABC53001BFAFB /* Accounts.framework */,
+				111FE91417B9E27600A43CBF /* CoreImage.framework */,
 				1172AE5717B4A48400E0DC06 /* UIKit.framework */,
 				1172AE5917B4A48400E0DC06 /* Foundation.framework */,
 				1172AE5B17B4A48400E0DC06 /* CoreGraphics.framework */,
@@ -121,6 +135,7 @@
 		1172AE5D17B4A48400E0DC06 /* testApp */ = {
 			isa = PBXGroup;
 			children = (
+				1149D4D717B9E956001BFAFB /* shareButton.png */,
 				1172AE9F17B82F5200E0DC06 /* VOTD.png */,
 				1172AE9D17B82F4300E0DC06 /* Video.png */,
 				1172AE9B17B82F3500E0DC06 /* Search.png */,
@@ -235,6 +250,7 @@
 				1172AE9C17B82F3600E0DC06 /* Search.png in Resources */,
 				1172AE9E17B82F4400E0DC06 /* Video.png in Resources */,
 				1172AEA017B82F5200E0DC06 /* VOTD.png in Resources */,
+				1149D4D817B9E956001BFAFB /* shareButton.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -382,6 +398,7 @@
 				1172AE8717B4A48500E0DC06 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

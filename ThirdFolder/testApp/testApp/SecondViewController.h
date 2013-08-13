@@ -17,7 +17,8 @@
 }
 
 -(IBAction)onClick:(id)sender;
-@property (weak, nonatomic) IBOutlet UISearchBar *mySearchBar;
+@property (weak,nonatomic) IBOutlet UITextField *searchBar;
+//@property (weak, nonatomic) IBOutlet UISearchBar *mySearchBar;
 @property (weak, nonatomic) IBOutlet UITextView *searchTextView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *clearButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *infoButton;

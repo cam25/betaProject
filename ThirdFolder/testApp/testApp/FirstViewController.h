@@ -14,10 +14,12 @@
     NSArray *jsonArray;
     NSDictionary *userDictionary;
     NSMutableData *data;
-    IBOutlet UITextView *VOTDtext;
+    //IBOutlet UITextView *VOTDtext;
     NSArray *usersArray;
     NSMutableArray *bibleVerses;
 }
+@property (weak, nonatomic) IBOutlet UIImageView *bgimageView;
+@property (weak, nonatomic) IBOutlet UITextView *VOTDtext;
 
 -(IBAction)onClick:(id)sender;
 

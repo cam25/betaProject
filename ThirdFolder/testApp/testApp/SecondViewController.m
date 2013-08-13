@@ -13,7 +13,7 @@
 @end
 
 @implementation SecondViewController
-
+@synthesize searchBar,searchTextView;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -26,7 +26,10 @@
 							
 - (void)viewDidLoad
 {
+    
+    
     [super viewDidLoad];
+    
     
 //    self.mySearchBar.delegate = self;
 //    self.searchTextView.delegate = self;
@@ -35,6 +38,14 @@
     
     
 	// Do any additional setup after loading the view, typically from a nib.
+}
+
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [searchBar resignFirstResponder];
+    
+    return NO;
 }
 
 - (void)didReceiveMemoryWarning
@@ -64,11 +75,31 @@
         [alertView show];
     }else if (button.tag == 2)
     {
-        UIAlertView *alertView = [[UIAlertView alloc] init];
-        alertView.title = @"Search ";
-        alertView.message = @" This will allow for searcing on click.";
-        [alertView addButtonWithTitle:@"OK"];
-        [alertView show];
+        
+        NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL
+                                                              URLWithString:@"http://labs.bible.org/api/?passage=&type=json"]];
+        
+        // NSURL *url = [NSURL URLWithString:@"http://labs.bible.org/api/?passage=votd"];
+        
+        NSData *response = [NSURLConnection sendSynchronousRequest:request
+                                                 returningResponse:nil error:nil];
+        NSError *error = nil;
+        NSArray *parser = [NSJSONSerialization JSONObjectWithData:response
+                                                          options:0 error:&error];
+        NSLog(@"Response:::%@",parser);
+       // [NSString stringWithFormat"http://labs.bible.org/api/?passage=%@&type=json", searchBar.text];
+        //NSString *results = [NSString stringWithFormat:@"http://labs.bible.org/api/?passage=%@&type=json", searchBar.text];
+         
+        NSString *handle = [[parser objectAtIndex:0] objectForKey:@"chapter"];
+        NSString *verse = [[parser objectAtIndex:0]objectForKey:@"verse"];
+        NSString *bookName = [[parser objectAtIndex:0]objectForKey:@"bookname"];
+        NSString *text = [[parser objectAtIndex:0]objectForKey:@"text"];
+        
+        searchTextView.text = [NSString stringWithFormat:@" %@" @" %@ :" @" %@\n\n" @"%@",bookName,handle,verse,text];
+        
+        
+
+        
     }
 }
 

@@ -6,6 +6,8 @@
 //  Copyright (c) 2013 Cameron Mozie. All rights reserved.
 //
 #import <QuartzCore/QuartzCore.h>
+#import <Accounts/Accounts.h>
+#import <Social/Social.h>
 #import "FirstViewController.h"
 #import "SplashScreenViewController.h"
 #import "AppDelegate.h"
@@ -14,6 +16,7 @@
 @end
 
 @implementation FirstViewController
+@synthesize bgimageView,VOTDtext;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -51,14 +54,28 @@
     NSString *bookName = [[parser objectAtIndex:0]objectForKey:@"bookname"];
     NSString *text = [[parser objectAtIndex:0]objectForKey:@"text"];
     
+    VOTDtext.text = [NSString stringWithFormat:@" %@" @" %@ :" @" %@\n\n" @"%@",bookName,handle,verse,text];
     
+    //Get a UIImage from the UIView
+    UIGraphicsBeginImageContext(bgimageView.bounds.size);
+    [bgimageView.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *viewImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
     
-    CALayer *imageLayer = VOTDtext.layer;
-    [imageLayer setCornerRadius:10];
-    [imageLayer setBorderWidth:1];
-    imageLayer.borderColor=[[UIColor blackColor] CGColor];
+    //Blur the UIImage with a CIFilter
+    CIImage *imageToBlur = [CIImage imageWithCGImage:viewImage.CGImage];
+    CIFilter *gaussianBlurFilter = [CIFilter filterWithName: @"CIGaussianBlur"];
+    [gaussianBlurFilter setValue:imageToBlur forKey: @"inputImage"];
+    [gaussianBlurFilter setValue:[NSNumber numberWithFloat: 1.5f] forKey: @"inputRadius"];
+    CIImage *resultImage = [gaussianBlurFilter valueForKey: @"outputImage"];
+    UIImage *endImage = [[UIImage alloc] initWithCIImage:resultImage];
+    
+    //Place the UIImage in a UIImageView
+    UIImageView *newView = [[UIImageView alloc] initWithFrame:bgimageView.bounds];
+    newView.image = endImage;
+    [bgimageView addSubview:newView];
 
-    VOTDtext.text = [NSString stringWithFormat:@"Book Name: %@\n" @"Chapter: %@ \n" @"Verse: %@\n" @"%@",bookName,handle,verse,text];
+    
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 }
@@ -81,9 +98,8 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-     //jsonArray = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
     
-    //VOTDtext.text = [jsonArray objectAtIndex:0];
+    
     AppDelegate *app = (AppDelegate*)[UIApplication sharedApplication].delegate;
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     if ([app.showedSplash isEqualToString:@"yes"])
@@ -92,6 +108,7 @@
         [defaults setObject:@"no" forKey:@"splash"];
         [defaults synchronize];
         SplashScreenViewController *splash = [[SplashScreenViewController alloc]initWithNibName:@"SplashScreenViewController" bundle:nil];
+        splash.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
         [self presentViewController:splash animated:TRUE completion:nil];
     } else if ([[defaults objectForKey:@"splash"] isEqualToString:@"yes"])
     {
@@ -118,12 +135,15 @@
     UIButton *button = (UIButton*)sender;
     
     if (button.tag == 0) {//if edit button is clicked unhide done button
-        
-        UIAlertView *alertView = [[UIAlertView alloc] init];
-        alertView.title = @"Share ";
-        alertView.message = @" This will allow for sharing to twitter.";
-        [alertView addButtonWithTitle:@"OK"];
-        [alertView show];
+        SLComposeViewController *slComposeViewController = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
+        if (slComposeViewController != nil) {
+            
+            //methods for setting text in tweet and images
+            [slComposeViewController setInitialText:@"Twitter posting"];
+            //[slComposeViewController addImage:[UIImage imageNamed:@"nats.png"]];
+            [self presentViewController:slComposeViewController animated:true completion:nil];
+        }
+        NSLog(@"post");
     }
 }
 
