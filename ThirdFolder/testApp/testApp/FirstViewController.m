@@ -138,8 +138,9 @@
         SLComposeViewController *slComposeViewController = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
         if (slComposeViewController != nil) {
             
+           // NSLog(@"%@", VOTDtext.text);
             //methods for setting text in tweet and images
-            [slComposeViewController setInitialText:@"Twitter posting"];
+            [slComposeViewController setInitialText:@""];
             //[slComposeViewController addImage:[UIImage imageNamed:@"nats.png"]];
             [self presentViewController:slComposeViewController animated:true completion:nil];
         }

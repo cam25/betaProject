@@ -54,6 +54,7 @@
     // Dispose of any resources that can be recreated.
 }
 
+
 -(IBAction)onClick:(id)sender
 {
     UIButton *button = (UIButton*)sender;
@@ -68,16 +69,33 @@
        
     }else if (button.tag == 1)
     {
-        UIAlertView *alertView = [[UIAlertView alloc] init];
-        alertView.title = @"Clear ";
-        alertView.message = @" This will allow for clearing text view.";
-        [alertView addButtonWithTitle:@"OK"];
-        [alertView show];
+//        UIAlertView *alertView = [[UIAlertView alloc] init];
+//        alertView.title = @"Clear ";
+//        alertView.message = @" This will allow for clearing text view.";
+//        [alertView addButtonWithTitle:@"OK"];
+//        [alertView show];
+        
+        searchTextView.text = @" ";
     }else if (button.tag == 2)
     {
+        NSString *unescaped = searchBar.text;
+        NSString *escapedString = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(
+                                                                                      NULL,
+                                                                                      (CFStringRef)unescaped,
+                                                                                      NULL,
+                                                                                      CFSTR("!*'();@$,/?%#[]"),
+                                                                                      kCFStringEncodingUTF8));
+        
+        NSLog(@"escapedString: %@",escapedString);
         
         NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL
-                                                              URLWithString:@"http://labs.bible.org/api/?passage=&type=json"]];
+                                                              URLWithString:[NSString stringWithFormat:@"http://labs.bible.org/api/?passage=%@&type=json",escapedString]]];
+       
+       
+        //[[NSString stringWithFormat:@"http://labs.bible.org/api/?passage=%@&type=json", searchBar.text] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        
+        
+        NSLog(@"%@",request);
         
         // NSURL *url = [NSURL URLWithString:@"http://labs.bible.org/api/?passage=votd"];
         
@@ -95,11 +113,10 @@
         NSString *bookName = [[parser objectAtIndex:0]objectForKey:@"bookname"];
         NSString *text = [[parser objectAtIndex:0]objectForKey:@"text"];
         
-        searchTextView.text = [NSString stringWithFormat:@" %@" @" %@ :" @" %@\n\n" @"%@",bookName,handle,verse,text];
-        
-        
+        searchTextView.text = [NSString stringWithFormat:@" %@  %@:%@  \n\n%@", bookName, handle, verse, text];
+      
 
-        
+        //[NSString stringWithFormat:@"http://labs.bible.org/api/?passage=%@%20%@:%@, bookName, handle,  verse"];
     }
 }
 
