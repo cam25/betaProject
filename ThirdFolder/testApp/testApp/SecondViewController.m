@@ -63,7 +63,7 @@
         
         UIAlertView *alertView = [[UIAlertView alloc] init];
         alertView.title = @"Search Example ";
-        alertView.message = @" To conduct a search enter a single verse ex. John 3:16 or ex. John 3:16-17 for a range of verses or ex. John 3:16;John1:1 to search for multiple single verses and or ranges, all seperated by semi-colons";
+        alertView.message = @" To conduct a single verse search enter the book name with a space then the chapter followed by a colon and then the verse.  (ex. John 3:16 ) Once info is entered click the Get Your Word Button to display the scripture.";
         [alertView addButtonWithTitle:@"OK"];
         [alertView show];
        

@@ -11,6 +11,10 @@
 		1149D4D817B9E956001BFAFB /* shareButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 1149D4D717B9E956001BFAFB /* shareButton.png */; };
 		1149D4DA17BABC53001BFAFB /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1149D4D917BABC53001BFAFB /* Accounts.framework */; };
 		1149D4DC17BABC5C001BFAFB /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1149D4DB17BABC5C001BFAFB /* Social.framework */; };
+		1149D4DF17BD57AE001BFAFB /* Videos.m in Sources */ = {isa = PBXBuildFile; fileRef = 1149D4DE17BD57AE001BFAFB /* Videos.m */; };
+		1149D4E217BDC265001BFAFB /* CustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1149D4E117BDC265001BFAFB /* CustomTableViewCell.m */; };
+		1149D4E417BDC289001BFAFB /* CustomTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1149D4E317BDC289001BFAFB /* CustomTableView.xib */; };
+		1149D4E617BDCF29001BFAFB /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1149D4E517BDCF29001BFAFB /* MediaPlayer.framework */; };
 		1172AE5817B4A48400E0DC06 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1172AE5717B4A48400E0DC06 /* UIKit.framework */; };
 		1172AE5A17B4A48400E0DC06 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1172AE5917B4A48400E0DC06 /* Foundation.framework */; };
 		1172AE5C17B4A48400E0DC06 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1172AE5B17B4A48400E0DC06 /* CoreGraphics.framework */; };
@@ -46,6 +50,12 @@
 		1149D4D717B9E956001BFAFB /* shareButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shareButton.png; sourceTree = "<group>"; };
 		1149D4D917BABC53001BFAFB /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		1149D4DB17BABC5C001BFAFB /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		1149D4DD17BD57AE001BFAFB /* Videos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Videos.h; sourceTree = "<group>"; };
+		1149D4DE17BD57AE001BFAFB /* Videos.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Videos.m; sourceTree = "<group>"; };
+		1149D4E017BDC265001BFAFB /* CustomTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTableViewCell.h; sourceTree = "<group>"; };
+		1149D4E117BDC265001BFAFB /* CustomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTableViewCell.m; sourceTree = "<group>"; };
+		1149D4E317BDC289001BFAFB /* CustomTableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomTableView.xib; sourceTree = "<group>"; };
+		1149D4E517BDCF29001BFAFB /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		1172AE5417B4A48400E0DC06 /* testApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = testApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1172AE5717B4A48400E0DC06 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		1172AE5917B4A48400E0DC06 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -90,6 +100,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1149D4E617BDCF29001BFAFB /* MediaPlayer.framework in Frameworks */,
 				1149D4DC17BABC5C001BFAFB /* Social.framework in Frameworks */,
 				1149D4DA17BABC53001BFAFB /* Accounts.framework in Frameworks */,
 				111FE91517B9E27600A43CBF /* CoreImage.framework in Frameworks */,
@@ -105,6 +116,7 @@
 		1172AE4B17B4A48400E0DC06 = {
 			isa = PBXGroup;
 			children = (
+				1149D4E517BDCF29001BFAFB /* MediaPlayer.framework */,
 				1172AE5D17B4A48400E0DC06 /* testApp */,
 				1172AE5617B4A48400E0DC06 /* Frameworks */,
 				1172AE5517B4A48400E0DC06 /* Products */,
@@ -163,6 +175,11 @@
 				1172AE9617B5A18700E0DC06 /* VideoViewController.h */,
 				1172AE9717B5A18800E0DC06 /* VideoViewController.m */,
 				1172AE9817B5A18900E0DC06 /* VideoViewController.xib */,
+				1149D4DD17BD57AE001BFAFB /* Videos.h */,
+				1149D4DE17BD57AE001BFAFB /* Videos.m */,
+				1149D4E017BDC265001BFAFB /* CustomTableViewCell.h */,
+				1149D4E117BDC265001BFAFB /* CustomTableViewCell.m */,
+				1149D4E317BDC289001BFAFB /* CustomTableView.xib */,
 			);
 			path = testApp;
 			sourceTree = "<group>";
@@ -251,6 +268,7 @@
 				1172AE9E17B82F4400E0DC06 /* Video.png in Resources */,
 				1172AEA017B82F5200E0DC06 /* VOTD.png in Resources */,
 				1149D4D817B9E956001BFAFB /* shareButton.png in Resources */,
+				1149D4E417BDC289001BFAFB /* CustomTableView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,6 +286,8 @@
 				1172AE8B17B4A4E200E0DC06 /* ThirdTabViewController.m in Sources */,
 				1172AE9017B4A56D00E0DC06 /* SplashScreenViewController.m in Sources */,
 				1172AE9917B5A18900E0DC06 /* VideoViewController.m in Sources */,
+				1149D4DF17BD57AE001BFAFB /* Videos.m in Sources */,
+				1149D4E217BDC265001BFAFB /* CustomTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

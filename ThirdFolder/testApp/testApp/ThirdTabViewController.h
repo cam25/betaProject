@@ -11,6 +11,7 @@
 @interface ThirdTabViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
 {
     IBOutlet UITableView *videoTableView;
+    NSMutableArray *variousVideos;
     
 }
 
