@@ -34,9 +34,9 @@
     
     variousVideos = [[NSMutableArray alloc]init];
     
-    Videos *video1 = [[Videos alloc]initWithTitle:[NSURL URLWithString:@"http://www.youtube.com/watch?v=NCBfazYb7qk"] videoTitle:@"Do spiritual teachers have bad days?" authorName:@"Oprah"];
+    Videos *video1 = [[Videos alloc]initWithTitle:[NSURL URLWithString:@"http://db.tt/vlQboymb"] videoTitle:@"Do spiritual teachers have bad days?" authorName:@"Oprah"];
     
-    Videos *video2 = [[Videos alloc]initWithTitle:[NSURL URLWithString:@"http://www.youtube.com/watch?v=3Ya12I036lg"] videoTitle:@"The awe factor of God" authorName:@"Francis Chan"];
+    Videos *video2 = [[Videos alloc]initWithTitle:[NSURL URLWithString:@"http://db.tt/KwYc0IEM"] videoTitle:@"The awe factor of God" authorName:@"Francis Chan"];
     
      
     Videos *video3 = [[Videos alloc]initWithTitle:[NSURL URLWithString:@"http://www.youtube.com/watch?v=GXzKABKSZZw"] videoTitle:@"Whats so great about jesus" authorName:@"Francis Chan"];
