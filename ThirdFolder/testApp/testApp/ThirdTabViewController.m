@@ -42,10 +42,10 @@
     Videos *video3 = [[Videos alloc]initWithTitle:[NSURL URLWithString:@"http://db.tt/Kq9z2GcC"] videoTitle:@"Whats so great about jesus" authorName:@"Francis Chan"];
     
     
-    Videos *video4 = [[Videos alloc]initWithTitle:[NSURL URLWithString:@"http://www.youtube.com/watch?v=Ztibky5-960"] videoTitle:@"Transformation:Its A Mind Thing" authorName:@"Bishop T.D.Jakes"];
+    Videos *video4 = [[Videos alloc]initWithTitle:[NSURL URLWithString:@"http://db.tt/EgsAeLXk"] videoTitle:@"Law Of Attraction" authorName:@"Will smith on travis smiley show"];
 
     
-    Videos *video5 = [[Videos alloc]initWithTitle:[NSURL URLWithString:@"http://www.youtube.com/watch?v=x7OSBQr3fR0"] videoTitle:@"God make miracles out of our mistakes" authorName:@"Joel Osteen"];
+    Videos *video5 = [[Videos alloc]initWithTitle:[NSURL URLWithString:@"http://db.tt/mDueQmZs"] videoTitle:@"Never wouldve Made it" authorName:@"Marvin Sapp"];
     
     [variousVideos addObject:video1];
     [variousVideos addObject:video2];

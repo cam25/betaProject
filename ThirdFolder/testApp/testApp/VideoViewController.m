@@ -82,16 +82,18 @@ self.title = @"Video Playback";
     {
         
         //adds the movie player view as a subview of the movie view so it can play in the movie view
-        [videoView addSubview:moviePlayer.view];
         
+        [videoView addSubview:moviePlayer.view];
+       
         //sizes the frame of the view
         moviePlayer.view.frame = CGRectMake(0.0f, 0.0f, videoView.frame.size.width, videoView.frame.size.height);
         
         //defaults
         moviePlayer.fullscreen = NO;
-        moviePlayer.controlStyle = MPMovieControlStyleNone;
+        moviePlayer.controlStyle = MPMovieControlStyleDefault;
         
         //plays the video
+         //[moviePlayer prepareToPlay];
         [moviePlayer play];
         
         
