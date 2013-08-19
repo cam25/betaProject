@@ -31,11 +31,6 @@
     [super viewDidLoad];
     
     
-//    self.mySearchBar.delegate = self;
-//    self.searchTextView.delegate = self;
-//    
-//    totalStrings = [[NSMutableArray alloc] initWithObjects:@"One",@"Two",@"Three",@"Four",@"Five",@"six", @"Seven",nil];
-    
     
 	// Do any additional setup after loading the view, typically from a nib.
 }
@@ -120,30 +115,6 @@
     }
 }
 
-//-(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
-//    
-//    if (searchText.length == 0) {
-//        isFiltered = NO;
-//    }else
-//    {
-//        isFiltered = YES;
-//        filteredStrings = [[NSMutableArray alloc]init];
-//        for (NSString *str in totalStrings) {
-//            
-//            NSRange stringRange = [str rangeOfString:searchText options:NSCaseInsensitiveSearch];
-//            
-//            if (stringRange.location != NSNotFound) {
-//                [filteredStrings addObject:str];
-//                
-//            }
-//
-//        }
-//    }
-//        
-//}
-//-(void)searchBarBookmarkButtonClicked:(UISearchBar *)searchBar
-//{
-//    [self.searchTextView resignFirstResponder];
-//}
+
 
 @end

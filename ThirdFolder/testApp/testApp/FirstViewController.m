@@ -140,7 +140,7 @@
             
            // NSLog(@"%@", VOTDtext.text);
             //methods for setting text in tweet and images
-            [slComposeViewController setInitialText:@""];
+            [slComposeViewController setInitialText:@"Posted From "];
             //[slComposeViewController addImage:[UIImage imageNamed:@"nats.png"]];
             [self presentViewController:slComposeViewController animated:true completion:nil];
         }

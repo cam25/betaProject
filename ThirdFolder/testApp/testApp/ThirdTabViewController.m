@@ -39,7 +39,7 @@
     Videos *video2 = [[Videos alloc]initWithTitle:[NSURL URLWithString:@"http://db.tt/KwYc0IEM"] videoTitle:@"The awe factor of God" authorName:@"Francis Chan"];
     
      
-    Videos *video3 = [[Videos alloc]initWithTitle:[NSURL URLWithString:@"http://www.youtube.com/watch?v=GXzKABKSZZw"] videoTitle:@"Whats so great about jesus" authorName:@"Francis Chan"];
+    Videos *video3 = [[Videos alloc]initWithTitle:[NSURL URLWithString:@"http://db.tt/Kq9z2GcC"] videoTitle:@"Whats so great about jesus" authorName:@"Francis Chan"];
     
     
     Videos *video4 = [[Videos alloc]initWithTitle:[NSURL URLWithString:@"http://www.youtube.com/watch?v=Ztibky5-960"] videoTitle:@"Transformation:Its A Mind Thing" authorName:@"Bishop T.D.Jakes"];
