@@ -34,18 +34,18 @@
     
     variousVideos = [[NSMutableArray alloc]init];
     
-    Videos *video1 = [[Videos alloc]initWithTitle:[NSURL URLWithString:@"http://db.tt/vlQboymb"] videoTitle:@"Do spiritual teachers have bad days?" authorName:@"Oprah"];
+    Videos *video1 = [[Videos alloc]initWithTitle:[NSURL URLWithString:@"http://designdevdeploy.com/Do%20Spiritual%20Teachers%20Have%20Bad%20Days%20Super%20Soul%20Sunday%20Network_640x480.mov"] videoTitle:@"Do spiritual teachers have bad days?" authorName:@"Oprah"];
     
-    Videos *video2 = [[Videos alloc]initWithTitle:[NSURL URLWithString:@"http://db.tt/KwYc0IEM"] videoTitle:@"The awe factor of God" authorName:@"Francis Chan"];
+    Videos *video2 = [[Videos alloc]initWithTitle:[NSURL URLWithString:@"http://designdevdeploy.com/The%20Awe%20Factor%20Of%20God%20-%20Francis%20Chan_640x480.mov"] videoTitle:@"The awe factor of God" authorName:@"Francis Chan"];
     
      
-    Videos *video3 = [[Videos alloc]initWithTitle:[NSURL URLWithString:@"http://db.tt/Kq9z2GcC"] videoTitle:@"Whats so great about jesus" authorName:@"Francis Chan"];
+    Videos *video3 = [[Videos alloc]initWithTitle:[NSURL URLWithString:@"http://designdevdeploy.com/What's%20So%20Great%20About%20Jesus%20-%20Francis%20Chan_640x480.mov"] videoTitle:@"Whats so great about jesus" authorName:@"Francis Chan"];
     
     
-    Videos *video4 = [[Videos alloc]initWithTitle:[NSURL URLWithString:@"http://db.tt/EgsAeLXk"] videoTitle:@"Law Of Attraction" authorName:@"Will smith on travis smiley show"];
+    Videos *video4 = [[Videos alloc]initWithTitle:[NSURL URLWithString:@"http://designdevdeploy.com/Will%20Smith%20segment%20on%20Tavis%20Smiley%20-%20Law%20of%20Attraction_640x480.mov"] videoTitle:@"Law Of Attraction" authorName:@"Will smith on travis smiley show"];
 
     
-    Videos *video5 = [[Videos alloc]initWithTitle:[NSURL URLWithString:@"http://db.tt/mDueQmZs"] videoTitle:@"Never wouldve Made it" authorName:@"Marvin Sapp"];
+    Videos *video5 = [[Videos alloc]initWithTitle:[NSURL URLWithString:@"http://designdevdeploy.com/Marvin%20Sapp%20-%20Never%20Would%20Have%20Made%20It_640x480.mov"] videoTitle:@"Never wouldve Made it" authorName:@"Marvin Sapp"];
     
     [variousVideos addObject:video1];
     [variousVideos addObject:video2];

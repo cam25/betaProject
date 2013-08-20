@@ -90,7 +90,7 @@ self.title = @"Video Playback";
         
         //defaults
         moviePlayer.fullscreen = NO;
-        moviePlayer.controlStyle = MPMovieControlStyleDefault;
+        moviePlayer.controlStyle = MPMovieControlStyleNone;
         
         //plays the video
          //[moviePlayer prepareToPlay];
