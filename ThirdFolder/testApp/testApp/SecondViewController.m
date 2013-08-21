@@ -58,7 +58,7 @@
         
         UIAlertView *alertView = [[UIAlertView alloc] init];
         alertView.title = @"Search Example ";
-        alertView.message = @" To conduct a single verse search enter the book name with a space then the chapter followed by a colon and then the verse.  (ex. John 3:16 ) Once info is entered click the Get Your Word Button to display the scripture.";
+        alertView.message = @" To conduct a single verse search enter the book name with a space then the chapter followed by a colon and then the verse. (ex1. John 3:16 ) (ex2. 1Kings 1:2) Once info is entered click the Get Your Word Button to display the scripture.";
         [alertView addButtonWithTitle:@"OK"];
         [alertView show];
        
@@ -71,14 +71,22 @@
 //        [alertView show];
         
         searchTextView.text = @" ";
-    }else if (button.tag == 2)
+    }
+    else if (button.tag == 2 && searchBar.text.length == 0) {
+        UIAlertView *alertView = [[UIAlertView alloc] init];
+        alertView.title = @"Error ";
+        alertView.message = @" Please enter text in search field.";
+        [alertView addButtonWithTitle:@"OK"];
+        [alertView show];
+    }
+    else if (button.tag == 2)
     {
         NSString *unescaped = searchBar.text;
         NSString *escapedString = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(
                                                                                       NULL,
                                                                                       (CFStringRef)unescaped,
                                                                                       NULL,
-                                                                                      CFSTR("!*'();@$,/?%#[]"),
+                                                                                      CFSTR("!*'();@$,/?%#[]-"),
                                                                                       kCFStringEncodingUTF8));
         
         NSLog(@"escapedString: %@",escapedString);
@@ -105,14 +113,18 @@
          
         NSString *handle = [[parser objectAtIndex:0] objectForKey:@"chapter"];
         NSString *verse = [[parser objectAtIndex:0]objectForKey:@"verse"];
+        
         NSString *bookName = [[parser objectAtIndex:0]objectForKey:@"bookname"];
         NSString *text = [[parser objectAtIndex:0]objectForKey:@"text"];
         
         searchTextView.text = [NSString stringWithFormat:@" %@  %@:%@  \n\n%@", bookName, handle, verse, text];
+        
+        
       
 
         //[NSString stringWithFormat:@"http://labs.bible.org/api/?passage=%@%20%@:%@, bookName, handle,  verse"];
     }
+  
 }
 
 

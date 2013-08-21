@@ -21,11 +21,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "testApp/FirstViewController.m"
-         timestampString = "398113999.755091"
+         timestampString = "398809125.31679"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "77"
-         endingLineNumber = "77"
+         startingLineNumber = "79"
+         endingLineNumber = "79"
          landmarkName = "-viewDidLoad"
          landmarkType = "5">
       </FileBreakpoint>
@@ -47,11 +47,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "testApp/SecondViewController.m"
-         timestampString = "398630224.536783"
+         timestampString = "398807718.10666"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "93"
-         endingLineNumber = "93"
+         startingLineNumber = "101"
+         endingLineNumber = "101"
          landmarkName = "-onClick:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -60,11 +60,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "testApp/SecondViewController.m"
-         timestampString = "398630224.536783"
+         timestampString = "398807718.10666"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "82"
-         endingLineNumber = "82"
+         startingLineNumber = "90"
+         endingLineNumber = "90"
          landmarkName = "-onClick:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -73,11 +73,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "testApp/SecondViewController.m"
-         timestampString = "398630224.536783"
+         timestampString = "398807718.10666"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "83"
-         endingLineNumber = "83"
+         startingLineNumber = "91"
+         endingLineNumber = "91"
          landmarkName = "-onClick:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -86,11 +86,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "testApp/SecondViewController.m"
-         timestampString = "398630224.536783"
+         timestampString = "398807718.10666"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "99"
-         endingLineNumber = "99"
+         startingLineNumber = "107"
+         endingLineNumber = "107"
          landmarkName = "-onClick:"
          landmarkType = "5">
       </FileBreakpoint>

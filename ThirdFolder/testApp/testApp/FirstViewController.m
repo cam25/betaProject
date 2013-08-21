@@ -47,12 +47,14 @@
     
    //NSArray *arr = [[[[parser objectForKey:@"chapter"] objectForKey:@"text"] objectForKey:@"verse"] objectForKey:@"bookname"];
         
-       
+       //[ stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
     NSString *handle = [[parser objectAtIndex:0] objectForKey:@"chapter"];
     NSString *verse = [[parser objectAtIndex:0]objectForKey:@"verse"];
     NSString *bookName = [[parser objectAtIndex:0]objectForKey:@"bookname"];
     NSString *text = [[parser objectAtIndex:0]objectForKey:@"text"];
+    
+
     
     VOTDtext.text = [NSString stringWithFormat:@" %@" @" %@ :" @" %@\n\n" @"%@",bookName,handle,verse,text];
     
