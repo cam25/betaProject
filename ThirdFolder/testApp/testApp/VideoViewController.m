@@ -89,7 +89,7 @@ self.title = @"Video Playback";
         moviePlayer.view.frame = CGRectMake(0.0f, 0.0f, videoView.frame.size.width, videoView.frame.size.height);
         
         //defaults
-        moviePlayer.fullscreen = YES;
+        moviePlayer.fullscreen = NO;
         moviePlayer.controlStyle = MPMovieControlStyleNone;
         
         //plays the video
