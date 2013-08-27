@@ -17,21 +17,26 @@
 @end
 
 @implementation MapViewController
-@synthesize locationManager,foundUserLocationCallback,mapItemPin,lastMapItemPinTapped,mapItems,localSearch,localSearchRequest,mapViewMode,coords,userLocationSet;
+@synthesize locationManager,foundUserLocationCallback,annotations,lastMapItemPinTapped,variousLocations,localSearch,localSearchRequest,_mapViewMode,locationsCoordinates,userLocationSet,toolbar;
 
-static CGFloat userPosZoomLat = 0.2;
-static CGFloat userPosZoomLon = 0.2;
+
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.title = NSLocalizedString(@"Find A Church", @"Find A Church");
-        self.tabBarItem.image = [UIImage imageNamed:@"church"];
+        self.title = NSLocalizedString(@"Locate A Church", @"Locate A Church");
+        self.tabBarItem.image = [UIImage imageNamed:@"Gps"];
     }
     return self;
 }
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    self.variousLocations = [[NSMutableArray alloc]init];
+}
+
 - (void)viewDidLoad
 {
      [super viewDidLoad];
@@ -44,6 +49,8 @@ static CGFloat userPosZoomLon = 0.2;
    
     
     [self.locationManager startUpdatingLocation];
+
+   
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -59,10 +66,7 @@ static CGFloat userPosZoomLon = 0.2;
     CLGeocoder *geocoder = [[CLGeocoder alloc] init];
     [geocoder geocodeAddressString:address completionHandler:^(NSArray *placemarks, NSError *error) {
         
-        if(!error && placemarks && placemarks.count > 0) {
-            [self findQuery:@"church" placeMarksArray:placemarks];
-        }
-        
+        NSLog(@"%@", error);
     }];
 }
 
@@ -70,12 +74,12 @@ static CGFloat userPosZoomLon = 0.2;
     
     CLLocation *userLocation = [locations lastObject];
     
-    self.coords = userLocation.coordinate;
+    self.locationsCoordinates = userLocation.coordinate;
     self.userLocationSet = YES;
     [self showLocation];
     
     if(self.foundUserLocationCallback) {
-        self.foundUserLocationCallback(self.coords);
+        self.foundUserLocationCallback(self.locationsCoordinates);
     }
     
     self.foundUserLocationCallback = nil;
@@ -87,13 +91,16 @@ static CGFloat userPosZoomLon = 0.2;
 
 -(void)showLocation {
     
-    MKCoordinateSpan   local = MKCoordinateSpanMake(userPosZoomLat, userPosZoomLon);
-    MKCoordinateRegion region = MKCoordinateRegionMake(self.coords, local);
+    MKCoordinateSpan span;
+    span.latitudeDelta = 0.2f;
+    span.longitudeDelta = 0.2f;
+    
+    MKCoordinateRegion region = MKCoordinateRegionMake(self.locationsCoordinates, span);
     
     CLLocationCoordinate2D location;
-    location.latitude = self.coords.latitude;
-    location.longitude = self.coords.longitude;
-    region.span = local;
+    location.latitude = self.locationsCoordinates.latitude;
+    location.longitude = self.locationsCoordinates.longitude;
+    region.span = span;
     region.center = location;
     
     [self.mapView setRegion:region animated:YES];
@@ -104,18 +111,18 @@ static CGFloat userPosZoomLon = 0.2;
 -(void)setMapViewMode:(MapViewMode)mapViewMode {
     
 
-    mapViewMode = mapViewMode;
-    [self.mapView addAnnotations:self.mapItems];
-    if(self.mapItemPin) {
-        [self.mapView addAnnotation:self.mapItemPin];
-        NSLog(@"%@",mapItemPin);
+    _mapViewMode = mapViewMode;
+    [self.mapView addAnnotations:self.variousLocations];
+    if(self.annotations) {
+        [self.mapView addAnnotation:self.annotations];
+        NSLog(@"%@",annotations);
     }
 }
 
 
 
 -(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
-    static NSString *const kPinIdentifier = @"MapItemAnnotation";
+    static NSString *const kPinIdentifier = @"AnnotationDrop";
     
     if([annotation isKindOfClass:[MyAnnotation class]]) {
         MKPinAnnotationView *view = (MKPinAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:kPinIdentifier];
@@ -124,6 +131,9 @@ static CGFloat userPosZoomLon = 0.2;
             view.canShowCallout = YES;
             view.calloutOffset = CGPointMake(-5, 5);
             view.animatesDrop = YES;
+            UIImageView *profileIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Gps.png"]];
+            view.leftCalloutAccessoryView = profileIconView;
+         
         }
         view.pinColor = MKPinAnnotationColorRed;
         return view;
@@ -137,10 +147,10 @@ static CGFloat userPosZoomLon = 0.2;
 
 -(void)startLookup:(NSString *)searchString {
     
-    // Set the size (local/span) of the region (address, w/e) we want to get search results for.
+   
     
-    MKCoordinateSpan   local = MKCoordinateSpanMake(0.6250, 0.6250);
-    MKCoordinateRegion region = MKCoordinateRegionMake(self.coords, local);
+    MKCoordinateSpan   local = MKCoordinateSpanMake(0.5900, 0.5900);
+    MKCoordinateRegion region = MKCoordinateRegionMake(self.locationsCoordinates, local);
     
     [self.mapView setRegion:region animated:NO];
     
@@ -155,11 +165,12 @@ static CGFloat userPosZoomLon = 0.2;
         if(!error){
             
             [self loadData:response];
-            NSLog(@"%@", response);
+            NSLog(@"count: %i", self.variousLocations.count);
+            [self.mapView addAnnotations:self.variousLocations];
             self.mapViewMode = MapViewModeNormal;
             
             MKCoordinateSpan   local = MKCoordinateSpanMake(0.2, 0.2);
-            MKCoordinateRegion region = MKCoordinateRegionMake(self.coords, local);
+            MKCoordinateRegion region = MKCoordinateRegionMake(self.locationsCoordinates, local);
             
             [self.mapView setRegion:region animated:NO];
         }
@@ -172,7 +183,7 @@ static CGFloat userPosZoomLon = 0.2;
     CLPlacemark *placemark = placemarks[0];
     CLLocation *location = placemark.location;
     
-    self.coords = location.coordinate;
+    self.locationsCoordinates = location.coordinate;
     
     [self startLookup:namestr];
     
@@ -181,10 +192,7 @@ static CGFloat userPosZoomLon = 0.2;
 
 -(void)loadData:(MKLocalSearchResponse *)response {
     
-    NSUInteger matchesCount = [response.mapItems count];
     NSInteger i = 0;
-    
-    self.mapItems = [[NSMutableArray alloc] initWithCapacity:matchesCount];
     
     for(MKMapItem *mapItem in response.mapItems){
         
@@ -197,10 +205,10 @@ static CGFloat userPosZoomLon = 0.2;
         CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(latitude, longitude);
         
       
+        MyAnnotation *ann = [[MyAnnotation alloc]initUsingCoordinate:coordinate mapItemName:mapItem.name];
         
         // Create a new station object with the coordinates created.
-        [self.mapItems addObject:[[MyAnnotation alloc] initUsingCoordinate:coordinate
-                                                                          mapItemName:mapItem.name]];
+        [self.variousLocations addObject:ann];
         i++;
         
         NSLog(@"%@",mapItem.name);
@@ -209,6 +217,7 @@ static CGFloat userPosZoomLon = 0.2;
 
 -(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
+   
     [self.mapView removeAnnotations:self.mapView.annotations];
     
     [self startLookup:searchBar.text];
@@ -217,5 +226,14 @@ static CGFloat userPosZoomLon = 0.2;
 	[self.searchBar resignFirstResponder];
 }
 
-
+-(IBAction)doneButtonClicked:(id)sender
+{
+    UIButton *button = (UIButton*)sender;
+    if (button.tag == 1) {
+        
+        [self.searchBar resignFirstResponder];
+    }
+   
+    
+}
 @end

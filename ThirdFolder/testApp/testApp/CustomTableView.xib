@@ -54,10 +54,9 @@
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<string key="IBUIText">MovieName</string>
-								<object class="NSColor" key="IBUITextColor" id="1045514402">
+								<object class="NSColor" key="IBUITextColor" id="943691480">
 									<int key="NSColorSpace">1</int>
-									<bytes key="NSRGB">MCAwIDAAA</bytes>
-									<string key="IBUIColorCocoaTouchKeyPath">darkTextColor</string>
+									<bytes key="NSRGB">MSAxIDEAA</bytes>
 								</object>
 								<object class="NSColor" key="IBUIHighlightedColor" id="313333437">
 									<int key="NSColorSpace">3</int>
@@ -81,7 +80,6 @@
 								<string key="NSFrame">{{0, 22}, {320, 21}}</string>
 								<reference key="NSSuperview" ref="326585339"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
@@ -89,7 +87,7 @@
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<string key="IBUIText">Author</string>
-								<reference key="IBUITextColor" ref="1045514402"/>
+								<reference key="IBUITextColor" ref="943691480"/>
 								<reference key="IBUIHighlightedColor" ref="313333437"/>
 								<int key="IBUIBaselineAdjustment">0</int>
 								<object class="IBUIFontDescription" key="IBUIFontDescription">

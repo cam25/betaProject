@@ -81,6 +81,7 @@
     }
     else if (button.tag == 2)
     {
+        [searchBar resignFirstResponder];
         NSString *unescaped = searchBar.text;
         NSString *escapedString = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(
                                                                                       NULL,
@@ -120,9 +121,12 @@
         searchTextView.text = [NSString stringWithFormat:@" %@  %@:%@  \n\n%@", bookName, handle, verse, text];
         
         
-      
+        
+        
 
         //[NSString stringWithFormat:@"http://labs.bible.org/api/?passage=%@%20%@:%@, bookName, handle,  verse"];
+       
+    
     }
   
 }

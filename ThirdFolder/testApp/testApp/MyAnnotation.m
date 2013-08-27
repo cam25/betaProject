@@ -9,25 +9,16 @@
 #import "MyAnnotation.h"
 #import <MapKit/MKAnnotation.h>
 #import "MapViewController.h"
-@implementation MyAnnotation  
-@synthesize coordinate, title,subTitle;
+@implementation MyAnnotation
 
+@synthesize coordinate, subTitle, title;
 
--(id)initUsingCoordinate:(CLLocationCoordinate2D)coordinate mapItemName:(NSString *)mapItemName {
-    
-    
-    return [self initUsingCoordinate:coordinate mapItemName:mapItemName withOptionalSubTitle:nil];
-}
-
--(id)initUsingCoordinate:(CLLocationCoordinate2D)coordinate mapItemName:(NSString *)mapItemName withOptionalSubTitle:(NSString *)optionalSubTitle {
+-(id)initUsingCoordinate:(CLLocationCoordinate2D)c mapItemName:(NSString *)mapItemName {
     
     self = [super init];
     if(self) {
         self.title = mapItemName;
-       self.coordinate = coordinate;
-        if(optionalSubTitle != nil) {
-           self.subTitle = optionalSubTitle;
-        }
+        self.coordinate = c;
     }
     return self;
 }

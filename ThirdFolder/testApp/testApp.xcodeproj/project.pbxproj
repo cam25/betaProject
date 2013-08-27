@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		11085F7F17CB0B2400F322DF /* Gps.png in Resources */ = {isa = PBXBuildFile; fileRef = 11085F7E17CB0B2400F322DF /* Gps.png */; };
 		111FE91517B9E27600A43CBF /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 111FE91417B9E27600A43CBF /* CoreImage.framework */; };
 		1149D4D817B9E956001BFAFB /* shareButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 1149D4D717B9E956001BFAFB /* shareButton.png */; };
 		1149D4DA17BABC53001BFAFB /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1149D4D917BABC53001BFAFB /* Accounts.framework */; };
@@ -53,6 +54,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		11085F7E17CB0B2400F322DF /* Gps.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Gps.png; sourceTree = "<group>"; };
 		111FE91417B9E27600A43CBF /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		1149D4D717B9E956001BFAFB /* shareButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shareButton.png; sourceTree = "<group>"; };
 		1149D4D917BABC53001BFAFB /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
@@ -167,6 +169,7 @@
 		1172AE5D17B4A48400E0DC06 /* testApp */ = {
 			isa = PBXGroup;
 			children = (
+				11085F7E17CB0B2400F322DF /* Gps.png */,
 				1149D4F517CA809A001BFAFB /* church.png */,
 				1149D4E717C5BEAA001BFAFB /* bibletexture1.png */,
 				1149D4D717B9E956001BFAFB /* shareButton.png */,
@@ -299,6 +302,7 @@
 				1149D4E817C5BEAB001BFAFB /* bibletexture1.png in Resources */,
 				1149D4ED17C6A0CC001BFAFB /* MapViewController.xib in Resources */,
 				1149D4F617CA809E001BFAFB /* church.png in Resources */,
+				11085F7F17CB0B2400F322DF /* Gps.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -415,6 +419,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "testApp/testApp-Prefix.pch";
 				INFOPLIST_FILE = "testApp/testApp-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -426,6 +431,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "testApp/testApp-Prefix.pch";
 				INFOPLIST_FILE = "testApp/testApp-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

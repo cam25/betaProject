@@ -21,20 +21,24 @@ typedef NS_ENUM(NSInteger, MapViewMode) {
     MapViewModeNormal = 0,
     MapViewModeLoading,
 };
+
+
 @property (nonatomic, strong) CLLocationManager *locationManager;
 @property (nonatomic, strong) UserLocationFoundCallback foundUserLocationCallback;
-@property (nonatomic, strong) MyAnnotation *mapItemPin;
+@property (nonatomic, strong) MyAnnotation *annotations;
 @property (nonatomic, strong) MyAnnotation *lastMapItemPinTapped;
-@property (nonatomic, strong) NSMutableArray *mapItems;
+@property (nonatomic, strong) NSMutableArray *variousLocations;
 @property (nonatomic, strong) MKLocalSearch *localSearch;
 @property (nonatomic, strong) MKLocalSearchRequest *localSearchRequest;
-@property (nonatomic) MapViewMode mapViewMode;
-@property CLLocationCoordinate2D coords;
+@property (nonatomic) MapViewMode _mapViewMode;
+@property CLLocationCoordinate2D locationsCoordinates;
 @property (nonatomic, weak) IBOutlet MKMapView *mapView;
 @property (nonatomic, weak) IBOutlet UISearchBar *searchBar;
+@property (nonatomic, strong)IBOutlet UIToolbar *toolbar;
 
 @property BOOL userLocationSet;
 
 -(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar;
+-(IBAction)doneButtonClicked:(id)sender;
 //@property (nonatomic, strong) IBOutlet UISearchBar *searchBar;
 @end
