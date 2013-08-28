@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		11085F7F17CB0B2400F322DF /* Gps.png in Resources */ = {isa = PBXBuildFile; fileRef = 11085F7E17CB0B2400F322DF /* Gps.png */; };
 		111FE91517B9E27600A43CBF /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 111FE91417B9E27600A43CBF /* CoreImage.framework */; };
+		112A31A817CD4D3C00D52180 /* NSString+stripHtml.m in Sources */ = {isa = PBXBuildFile; fileRef = 112A31A717CD4D3C00D52180 /* NSString+stripHtml.m */; };
 		1149D4D817B9E956001BFAFB /* shareButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 1149D4D717B9E956001BFAFB /* shareButton.png */; };
 		1149D4DA17BABC53001BFAFB /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1149D4D917BABC53001BFAFB /* Accounts.framework */; };
 		1149D4DC17BABC5C001BFAFB /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1149D4DB17BABC5C001BFAFB /* Social.framework */; };
@@ -56,6 +57,8 @@
 /* Begin PBXFileReference section */
 		11085F7E17CB0B2400F322DF /* Gps.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Gps.png; sourceTree = "<group>"; };
 		111FE91417B9E27600A43CBF /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		112A31A617CD4D3C00D52180 /* NSString+stripHtml.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+stripHtml.h"; sourceTree = "<group>"; };
+		112A31A717CD4D3C00D52180 /* NSString+stripHtml.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+stripHtml.m"; sourceTree = "<group>"; };
 		1149D4D717B9E956001BFAFB /* shareButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shareButton.png; sourceTree = "<group>"; };
 		1149D4D917BABC53001BFAFB /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		1149D4DB17BABC5C001BFAFB /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
@@ -210,6 +213,8 @@
 				1149D4EB17C6A0CB001BFAFB /* MapViewController.xib */,
 				1149D4F217C6A875001BFAFB /* MyAnnotation.h */,
 				1149D4F317C6A875001BFAFB /* MyAnnotation.m */,
+				112A31A617CD4D3C00D52180 /* NSString+stripHtml.h */,
+				112A31A717CD4D3C00D52180 /* NSString+stripHtml.m */,
 			);
 			path = testApp;
 			sourceTree = "<group>";
@@ -324,6 +329,7 @@
 				1149D4E217BDC265001BFAFB /* CustomTableViewCell.m in Sources */,
 				1149D4EC17C6A0CC001BFAFB /* MapViewController.m in Sources */,
 				1149D4F417C6A876001BFAFB /* MyAnnotation.m in Sources */,
+				112A31A817CD4D3C00D52180 /* NSString+stripHtml.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

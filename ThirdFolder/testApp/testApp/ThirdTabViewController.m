@@ -53,6 +53,12 @@
     [variousVideos addObject:video4];
     [variousVideos addObject:video5];
     
+    videoTableView.backgroundColor = [UIColor clearColor];
+    videoTableView.rowHeight = 75;
+    
+   
+   
+    
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 }
@@ -90,12 +96,7 @@
         
         
     }
-  
     
-    
-    
-    
-  
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -108,6 +109,10 @@
       
         cell.movieName.text = info.movieName;
         cell.authorsName.text = info.authorMovie;
+        cell.movieName.backgroundColor = [UIColor clearColor];
+        cell.movieName.textColor = [UIColor colorWithRed:0.25 green:0.0 blue:0.0 alpha:1.0];
+        cell.movieName.highlightedTextColor = [UIColor colorWithRed:1.0 green:1.0 blue:0.9 alpha:1.0];
+        //cell.movieName.font = [UIFont systemFontOfSize:[UIFont labelFontSize]];
         
     
     }

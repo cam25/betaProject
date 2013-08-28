@@ -11,7 +11,7 @@
 #import "MapViewController.h"
 @implementation MyAnnotation
 
-@synthesize coordinate, subTitle, title;
+@synthesize coordinate, title;
 
 -(id)initUsingCoordinate:(CLLocationCoordinate2D)c mapItemName:(NSString *)mapItemName {
     

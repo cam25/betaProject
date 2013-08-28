@@ -11,6 +11,7 @@
 #import "FirstViewController.h"
 #import "SplashScreenViewController.h"
 #import "AppDelegate.h"
+#import "NSString+stripHtml.h"
 @interface FirstViewController ()
 
 @end
@@ -45,18 +46,22 @@
     NSLog(@"Response:::%@",parser);
     
     
-   //NSArray *arr = [[[[parser objectForKey:@"chapter"] objectForKey:@"text"] objectForKey:@"verse"] objectForKey:@"bookname"];
-        
-       //[ stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
     NSString *handle = [[parser objectAtIndex:0] objectForKey:@"chapter"];
     NSString *verse = [[parser objectAtIndex:0]objectForKey:@"verse"];
     NSString *bookName = [[parser objectAtIndex:0]objectForKey:@"bookname"];
     NSString *text = [[parser objectAtIndex:0]objectForKey:@"text"];
     
-
+   
+    NSString *decoded = (__bridge_transfer NSString *)CFURLCreateStringByReplacingPercentEscapesUsingEncoding(NULL, (CFStringRef)text, CFSTR("!*'();:@&=+$,/?%#[]<>"), NSUTF8StringEncoding);
+ 
+    NSLog(@"%@",decoded);
     
-    VOTDtext.text = [NSString stringWithFormat:@" %@" @" %@ :" @" %@\n\n" @"%@",bookName,handle,verse,text];
+    NSString *stripped = [decoded stripHtml];
+    
+    NSLog(@"%@",stripped);
+    
+    VOTDtext.text = [NSString stringWithFormat:@" %@" @" %@ :" @" %@\n\n" @"%@",bookName,handle,verse,stripped];
     
     //Get a UIImage from the UIView
     UIGraphicsBeginImageContext(bgimageView.bounds.size);

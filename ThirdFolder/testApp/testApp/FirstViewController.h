@@ -18,6 +18,7 @@
     NSArray *usersArray;
     NSMutableArray *bibleVerses;
 }
+
 @property (weak, nonatomic) IBOutlet UIImageView *bgimageView;
 @property (weak, nonatomic) IBOutlet UITextView *VOTDtext;
 

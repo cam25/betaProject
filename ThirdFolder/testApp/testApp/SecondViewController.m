@@ -7,7 +7,7 @@
 //
 
 #import "SecondViewController.h"
-
+#import "NSString+stripHtml.h"
 @interface SecondViewController ()
 
 @end
@@ -26,12 +26,9 @@
 							
 - (void)viewDidLoad
 {
-    
-    
+      
     [super viewDidLoad];
-    
-    
-    
+
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -54,7 +51,7 @@
 {
     UIButton *button = (UIButton*)sender;
     
-    if (button.tag == 0) {//if edit button is clicked unhide done button
+    if (button.tag == 0) {//if search icon clicked show alert
         
         UIAlertView *alertView = [[UIAlertView alloc] init];
         alertView.title = @"Search Example ";
@@ -94,14 +91,10 @@
         
         NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL
                                                               URLWithString:[NSString stringWithFormat:@"http://labs.bible.org/api/?passage=%@&type=json",escapedString]]];
-       
-       
-        //[[NSString stringWithFormat:@"http://labs.bible.org/api/?passage=%@&type=json", searchBar.text] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         
         
         NSLog(@"%@",request);
         
-        // NSURL *url = [NSURL URLWithString:@"http://labs.bible.org/api/?passage=votd"];
         
         NSData *response = [NSURLConnection sendSynchronousRequest:request
                                                  returningResponse:nil error:nil];
@@ -109,24 +102,17 @@
         NSArray *parser = [NSJSONSerialization JSONObjectWithData:response
                                                           options:0 error:&error];
         NSLog(@"Response:::%@",parser);
-       // [NSString stringWithFormat"http://labs.bible.org/api/?passage=%@&type=json", searchBar.text];
-        //NSString *results = [NSString stringWithFormat:@"http://labs.bible.org/api/?passage=%@&type=json", searchBar.text];
-         
+ 
+
+        
         NSString *handle = [[parser objectAtIndex:0] objectForKey:@"chapter"];
         NSString *verse = [[parser objectAtIndex:0]objectForKey:@"verse"];
         
         NSString *bookName = [[parser objectAtIndex:0]objectForKey:@"bookname"];
         NSString *text = [[parser objectAtIndex:0]objectForKey:@"text"];
+        NSString *strippedString = [text stripHtml];
+        searchTextView.text = [NSString stringWithFormat:@" %@  %@:%@  \n\n%@", bookName, handle, verse, strippedString];
         
-        searchTextView.text = [NSString stringWithFormat:@" %@  %@:%@  \n\n%@", bookName, handle, verse, text];
-        
-        
-        
-        
-
-        //[NSString stringWithFormat:@"http://labs.bible.org/api/?passage=%@%20%@:%@, bookName, handle,  verse"];
-       
-    
     }
   
 }

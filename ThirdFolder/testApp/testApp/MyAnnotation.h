@@ -12,14 +12,13 @@
 
 {
     NSString *title;
-    NSString *subTitle;
     CLLocationCoordinate2D coord;
 }
 -(id)initUsingCoordinate:(CLLocationCoordinate2D)c mapItemName:(NSString *)mapItemName;
 
 @property (nonatomic) CLLocationCoordinate2D coordinate;
 @property (nonatomic, copy) NSString *title;
-@property (nonatomic, copy) NSString *subTitle;
+
 
 
 @end
