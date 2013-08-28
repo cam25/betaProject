@@ -29,11 +29,17 @@
 
 - (void)viewDidLoad
 {
+    
+    //title for screen
     self.title = @"Videos";
+    
+    //setting color for nav bar
     self.navigationController.navigationBar.tintColor = [UIColor orangeColor];
     
+    //initializing video array
     variousVideos = [[NSMutableArray alloc]init];
     
+    //creation of my video objects
     Videos *video1 = [[Videos alloc]initWithTitle:[NSURL URLWithString:@"http://designdevdeploy.com/Do%20Spiritual%20Teachers%20Have%20Bad%20Days%20Super%20Soul%20Sunday%20Network_640x480.mov"] videoTitle:@"Do spiritual teachers have bad days?" authorName:@"Oprah"];
     
     Videos *video2 = [[Videos alloc]initWithTitle:[NSURL URLWithString:@"http://designdevdeploy.com/The%20Awe%20Factor%20Of%20God%20-%20Francis%20Chan_640x480.mov"] videoTitle:@"The awe factor of God" authorName:@"Francis Chan"];
@@ -47,12 +53,15 @@
     
     Videos *video5 = [[Videos alloc]initWithTitle:[NSURL URLWithString:@"http://designdevdeploy.com/Marvin%20Sapp%20-%20Never%20Would%20Have%20Made%20It_640x480.mov"] videoTitle:@"Never wouldve Made it" authorName:@"Marvin Sapp"];
     
+    
+    //adding videos to the array
     [variousVideos addObject:video1];
     [variousVideos addObject:video2];
     [variousVideos addObject:video3];
     [variousVideos addObject:video4];
     [variousVideos addObject:video5];
     
+    //setting of color and cell height
     videoTableView.backgroundColor = [UIColor clearColor];
     videoTableView.rowHeight = 75;
     
@@ -91,22 +100,24 @@
         
         detailsView.movieDetails = info;
         
+        
         //calls second view/details view
     [self.navigationController pushViewController:detailsView animated:true];
         
         
     }
-    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"CustomTableView" owner:self options:nil];
      CustomTableViewCell*cell = (CustomTableViewCell *) [nib objectAtIndex:0];
     
+    //creating info object to store my videos at the objects index path .row
     Videos *info = [variousVideos objectAtIndex:indexPath.row];
     
     if (cell != nil) {
-      
+      //customizing of cell and setting the cell to the info from my various video array
         cell.movieName.text = info.movieName;
         cell.authorsName.text = info.authorMovie;
         cell.movieName.backgroundColor = [UIColor clearColor];

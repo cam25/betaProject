@@ -28,10 +28,10 @@
 - (void)viewDidLoad
 {
     
-
+//sets the title of the video view
 self.title = @"Video Playback";
     
-    
+    //passing of movie info to the label
      movieTitle.text = movieDetails.movieName;
     NSLog(@"%@",movieDetails.movieName);
     

@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+//strip HTML category
 @interface NSString (stripHtml)
 - (NSString*)stripHtml;
 @end

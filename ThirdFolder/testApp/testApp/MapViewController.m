@@ -32,6 +32,7 @@
     return self;
 }
 
+//inits my various location array
 - (void)viewWillAppear:(BOOL)animated
 {
     self.variousLocations = [[NSMutableArray alloc]init];
@@ -40,14 +41,15 @@
 - (void)viewDidLoad
 {
      [super viewDidLoad];
-
+    
+    //setting all the delegates and initting my location manager
     self.mapView.delegate = self;
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
     self.searchBar.delegate = self;
     
    
-    
+    //on load of the view start updating my location
     [self.locationManager startUpdatingLocation];
 
    
@@ -61,15 +63,18 @@
     // Dispose of any resources that can be recreated.
 }
 
+//sets coordinates by address if you are searching for chuch via address
 -(void)setupCoordsUsingAddress:(NSString *)address {
     
     CLGeocoder *geocoder = [[CLGeocoder alloc] init];
     [geocoder geocodeAddressString:address completionHandler:^(NSArray *placemarks, NSError *error) {
         
+        //logs the error
         NSLog(@"%@", error);
     }];
 }
 
+//sets user location when called
 -(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
     
     CLLocation *userLocation = [locations lastObject];
@@ -89,6 +94,7 @@
     }
 }
 
+//shows location at the coordinates of the user
 -(void)showLocation {
     
     MKCoordinateSpan span;
@@ -107,7 +113,7 @@
 }
 
 
-
+//loads the mapViewMode and adds annotations to the view when called
 -(void)setMapViewMode:(MapViewMode)mapViewMode {
     
 
@@ -120,7 +126,7 @@
 }
 
 
-
+//creation of annotations
 -(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
     static NSString *const kPinIdentifier = @"AnnotationDrop";
     
@@ -141,10 +147,12 @@
     return nil;
 }
 
+//handles the tap of the annotations
 -(void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {
     self.lastMapItemPinTapped = (MyAnnotation *)view.annotation;
 }
 
+//searches for matches based on search string
 -(void)startLookup:(NSString *)searchString {
     
    
@@ -177,6 +185,7 @@
     }];
 }
 
+//finds search results based on distance of users gps
 -(void)findQuery:(NSString *)namestr placeMarksArray:(NSArray *)placemarks {
     
     // Search 0.250km from point for stores.
@@ -190,6 +199,7 @@
     NSLog(@"%@",namestr);
 }
 
+//populates data into the map view based on the place mark and coordinates
 -(void)loadData:(MKLocalSearchResponse *)response {
     
     NSInteger i = 0;
@@ -215,6 +225,7 @@
     }
 }
 
+//search is clicked it removes current annotations and starts a new lookup
 -(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
    
@@ -226,6 +237,7 @@
 	[self.searchBar resignFirstResponder];
 }
 
+//if a user chooses to not search for anything can click done and removes the keyboard with this function
 -(IBAction)doneButtonClicked:(id)sender
 {
     UIButton *button = (UIButton*)sender;

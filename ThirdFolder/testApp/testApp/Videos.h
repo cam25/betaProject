@@ -10,10 +10,12 @@
 
 @interface Videos : NSObject
 {
+    //variables used for video view
      NSURL *moviesURL;
     NSString *movieName;
     NSString *authorMovie;
 }
+//setting of method to recieve my movie info 
 -(id)initWithTitle:(NSURL*)videos videoTitle:(NSString*)movieTitle authorName:(NSString*)author;
 @property(nonatomic,strong)NSURL *moviesURL;
 @property(nonatomic,strong)NSString *movieName;

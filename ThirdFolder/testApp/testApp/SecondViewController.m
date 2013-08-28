@@ -32,7 +32,7 @@
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
-
+//resigns the keyboard
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [searchBar resignFirstResponder];
@@ -61,15 +61,12 @@
        
     }else if (button.tag == 1)
     {
-//        UIAlertView *alertView = [[UIAlertView alloc] init];
-//        alertView.title = @"Clear ";
-//        alertView.message = @" This will allow for clearing text view.";
-//        [alertView addButtonWithTitle:@"OK"];
-//        [alertView show];
-        
+        //clear button is pressed clears textview
         searchTextView.text = @" ";
     }
     else if (button.tag == 2 && searchBar.text.length == 0) {
+        
+        //if nothing is entered in search bar alert
         UIAlertView *alertView = [[UIAlertView alloc] init];
         alertView.title = @"Error ";
         alertView.message = @" Please enter text in search field.";
@@ -78,8 +75,13 @@
     }
     else if (button.tag == 2)
     {
+        //accesses the search feature
         [searchBar resignFirstResponder];
+        
+        //sets a variable to hold the search bar text
         NSString *unescaped = searchBar.text;
+        
+        //encoding the search bar text to account for any characters (i.e. space %20)
         NSString *escapedString = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(
                                                                                       NULL,
                                                                                       (CFStringRef)unescaped,
@@ -89,6 +91,7 @@
         
         NSLog(@"escapedString: %@",escapedString);
         
+        //passing of the encoded string to the request query for the api
         NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL
                                                               URLWithString:[NSString stringWithFormat:@"http://labs.bible.org/api/?passage=%@&type=json",escapedString]]];
         
@@ -99,18 +102,23 @@
         NSData *response = [NSURLConnection sendSynchronousRequest:request
                                                  returningResponse:nil error:nil];
         NSError *error = nil;
+        
+        //parsing of the response 
         NSArray *parser = [NSJSONSerialization JSONObjectWithData:response
                                                           options:0 error:&error];
         NSLog(@"Response:::%@",parser);
  
-
+        //setting of variables to hold the data at the specific key value in the api
         
         NSString *handle = [[parser objectAtIndex:0] objectForKey:@"chapter"];
         NSString *verse = [[parser objectAtIndex:0]objectForKey:@"verse"];
-        
         NSString *bookName = [[parser objectAtIndex:0]objectForKey:@"bookname"];
         NSString *text = [[parser objectAtIndex:0]objectForKey:@"text"];
+        
+        //creating a variable to hold the data from calling my stripHtml plugin that removes any unwanted html elements in my string
         NSString *strippedString = [text stripHtml];
+        
+        //passing of variables to be displaying in text view
         searchTextView.text = [NSString stringWithFormat:@" %@  %@:%@  \n\n%@", bookName, handle, verse, strippedString];
         
     }

@@ -16,13 +16,13 @@
 typedef void (^UserLocationFoundCallback)(CLLocationCoordinate2D);
 @interface MapViewController : UIViewController <MKMapViewDelegate, UISearchBarDelegate, CLLocationManagerDelegate>
 
-
+//sets mapview mode to 0 
 typedef NS_ENUM(NSInteger, MapViewMode) {
-    MapViewModeNormal = 0,
-    MapViewModeLoading,
+    MapViewModeNormal = 0
+   
 };
 
-
+//properties for search and annotations
 @property (nonatomic, strong) CLLocationManager *locationManager;
 @property (nonatomic, strong) UserLocationFoundCallback foundUserLocationCallback;
 @property (nonatomic, strong) MyAnnotation *annotations;
@@ -38,6 +38,7 @@ typedef NS_ENUM(NSInteger, MapViewMode) {
 
 @property BOOL userLocationSet;
 
+//functions for search button and done button
 -(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar;
 -(IBAction)doneButtonClicked:(id)sender;
 //@property (nonatomic, strong) IBOutlet UISearchBar *searchBar;

@@ -14,6 +14,7 @@
     NSString *title;
     CLLocationCoordinate2D coord;
 }
+//method for setting annotations
 -(id)initUsingCoordinate:(CLLocationCoordinate2D)c mapItemName:(NSString *)mapItemName;
 
 @property (nonatomic) CLLocationCoordinate2D coordinate;

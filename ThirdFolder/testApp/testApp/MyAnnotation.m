@@ -15,6 +15,7 @@
 
 -(id)initUsingCoordinate:(CLLocationCoordinate2D)c mapItemName:(NSString *)mapItemName {
     
+    //setters
     self = [super init];
     if(self) {
         self.title = mapItemName;

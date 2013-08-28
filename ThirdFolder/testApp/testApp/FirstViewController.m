@@ -32,11 +32,10 @@
 - (void)viewDidLoad
 {
     
-    
+    //------+parsing info
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL
                                                           URLWithString:@"http://labs.bible.org/api/?passage=votd&type=json"]];
-    
-   // NSURL *url = [NSURL URLWithString:@"http://labs.bible.org/api/?passage=votd"];
+
     
     NSData *response = [NSURLConnection sendSynchronousRequest:request
                                              returningResponse:nil error:nil];
@@ -45,22 +44,27 @@
                                                       options:0 error:&error];
     NSLog(@"Response:::%@",parser);
     
+    //--------+end of parser code
     
     
+    //setting variables to hold the response from the api at the key for each specific object
     NSString *handle = [[parser objectAtIndex:0] objectForKey:@"chapter"];
     NSString *verse = [[parser objectAtIndex:0]objectForKey:@"verse"];
     NSString *bookName = [[parser objectAtIndex:0]objectForKey:@"bookname"];
     NSString *text = [[parser objectAtIndex:0]objectForKey:@"text"];
     
-   
+   //decoder to not allow for unwanted characters
     NSString *decoded = (__bridge_transfer NSString *)CFURLCreateStringByReplacingPercentEscapesUsingEncoding(NULL, (CFStringRef)text, CFSTR("!*'();:@&=+$,/?%#[]<>"), NSUTF8StringEncoding);
  
     NSLog(@"%@",decoded);
     
-    NSString *stripped = [decoded stripHtml];
     
+    //calling of my strip html to strop the string of any unwanted html elements
+    NSString *stripped = [decoded stripHtml];
     NSLog(@"%@",stripped);
     
+    
+    //displays the verse of the day inside textview
     VOTDtext.text = [NSString stringWithFormat:@" %@" @" %@ :" @" %@\n\n" @"%@",bookName,handle,verse,stripped];
     
     //Get a UIImage from the UIView
@@ -87,7 +91,7 @@
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
-
+//alerts the user to connect to the internet to have access to the applications funcationality
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
     UIAlertView *alertView = [[UIAlertView alloc] init];
@@ -106,17 +110,30 @@
 {
     [super viewDidAppear:animated];
     
-    
+    //created app delegate object for accessing inside of app delegate
     AppDelegate *app = (AppDelegate*)[UIApplication sharedApplication].delegate;
+    
+    //user defaults
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    //if the showedSplash bool is yes then set the default to no to not allow it to show up each time the screen is presented and present the view
     if ([app.showedSplash isEqualToString:@"yes"])
     {
         app.showedSplash = @"no";
         [defaults setObject:@"no" forKey:@"splash"];
         [defaults synchronize];
+        
+        
         SplashScreenViewController *splash = [[SplashScreenViewController alloc]initWithNibName:@"SplashScreenViewController" bundle:nil];
+        
+        
         splash.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+        
+        
         [self presentViewController:splash animated:TRUE completion:nil];
+        
+    
+        //if defaults has an object for key splash = to yes present view
     } else if ([[defaults objectForKey:@"splash"] isEqualToString:@"yes"])
     {
         app.showedSplash = @"no";
@@ -127,8 +144,10 @@
     }
 }
 
+
 - (void)viewWillDisappear:(BOOL)animated
 {
+    //sets the object for the splash screen to yes in defaults if its no to allow the splash to show up upon reopening of app
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     if (![[defaults objectForKey:@"splash"] isEqualToString:@"no"])
     {
@@ -141,14 +160,15 @@
 {
     UIButton *button = (UIButton*)sender;
     
-    if (button.tag == 0) {//if edit button is clicked unhide done button
+    
+    //if share button is clicked access twitter data
+        if (button.tag == 0) {//if share button is clicked unhide done button
         SLComposeViewController *slComposeViewController = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
         if (slComposeViewController != nil) {
             
-           // NSLog(@"%@", VOTDtext.text);
-            //methods for setting text in tweet and images
+            //sets default text
             [slComposeViewController setInitialText:@"Posted From Spiritual Balance:"];
-            //[slComposeViewController addImage:[UIImage imageNamed:@"nats.png"]];
+            
             [self presentViewController:slComposeViewController animated:true completion:nil];
         }
         NSLog(@"post");
